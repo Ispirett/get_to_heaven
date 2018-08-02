@@ -52,20 +52,20 @@ const gameConfig = {
 
 // answer Reply
 
-let reply = () => {
+ reply = () => {
 
     testReply(0,'1');
     testReply(1,'2');
     testReply(2,'3');
     testReply(3,'4');
-    testReply(4,'5');
-    testReply(5,'6');
-    testReply(6,'7');
-    testReply(7,'8');
-    testReply(8,'9');
-    testReply(9,'10');
-    testReply(10,'11');
-    testReply(11,'12');
+   testReply(4,'5');
+   testReply(5,'6');
+   testReply(6,'7');
+   testReply(7,'8');
+   testReply(8,'9');
+   testReply(9,'10');
+   testReply(10,'11');
+   testReply(11,'12');
 
 
     gameOver();
@@ -94,6 +94,7 @@ let reply = () => {
 
 let testReply = (questionIndex ,answerIndex) =>{
     // get questions
+   let questionChange =  setTimeout(clear = () => { $('#questions').html(randomQuestion())  },2000);
    let tryPair = $('#questions').html();
    let testQ = gameConfig.questions;
    let test = gameConfig.answers;
@@ -105,7 +106,9 @@ let testReply = (questionIndex ,answerIndex) =>{
 
           $('#response').html(gameConfig.response.correct);
           $('#score').html(score += 7);
-          $('#questions').html(randomQuestion())
+          questionChange;
+
+
 
       }
       else {
@@ -155,6 +158,7 @@ setInterval(clear = () => {  $('#response').html('') },7000);
 $(function () {
 $('#questions').html(randomQuestion());
 $('#life').html(life);
+
 
 
 });
