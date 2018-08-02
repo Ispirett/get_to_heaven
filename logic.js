@@ -39,7 +39,7 @@ const gameConfig = {
 
   response: {
       correct: 'I step closer to Heaven',
-      incorrect: 'You have forsaken you God',
+      incorrect: 'You have forsaken your God',
 
   }
 
