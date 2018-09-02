@@ -1,5 +1,5 @@
 // varriables
-let score = 0;  let life = 3;
+let score = 0;  let life = 3; let winScore = 49;
 
 
 const gameConfig = {
@@ -113,8 +113,9 @@ let testReply = (questionIndex ,answerIndex) =>{
       }
       else {
           $('#response').html(gameConfig.response.incorrect);
-          $('#score').html(score += -6);
-          $('#life').html(life += -1)
+          $('#score').html(score -= 6);
+          $('#life').html(life -= 1);
+          $('#ScoreImage').attr("src", "https://media.giphy.com/media/NK1x68ZH6KojS/giphy.gif")
 
       }
 
@@ -136,7 +137,7 @@ let testReply = (questionIndex ,answerIndex) =>{
 
 gameWon = () => {
 
-    if(score === 49) {
+    if(score === winScore) {
         $('#gameOver').html('You have made it to Heaven')
 
     }
@@ -150,7 +151,7 @@ gameWon = () => {
 
 
 
-
+setInterval(clear = () => {  $('#ScoreImage').attr("src","") },3000);
 setInterval(clear = () => {  $('#response').html('') },7000);
 
 
