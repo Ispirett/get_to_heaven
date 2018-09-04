@@ -97,12 +97,16 @@ let testReply = (questionIndex ,answerIndex) =>{
    let questionChange =  setTimeout(clear = () => { $('#questions').html(randomQuestion())  },2000);
    let tryPair = $('#questions').html();
    let testQ = gameConfig.questions;
-   let test = gameConfig.answers;
+
+   let testAnswers = gameConfig.answers;
+    console.log(testAnswers);
    let reply = $('#answers').val();
+   //convert user input to lowercase
+    reply.toLowerCase();
 
    //test
    if( tryPair === testQ[questionIndex] ) {
-      if (test[answerIndex] === reply) {
+      if (testAnswers[answerIndex].toLowerCase() === reply) {
 
           $('#response').html(gameConfig.response.correct);
           $('#score').html(score += 7);
@@ -121,7 +125,7 @@ let testReply = (questionIndex ,answerIndex) =>{
 
 
       }
-
+     //$('#answers').val("");
 
 };
 
