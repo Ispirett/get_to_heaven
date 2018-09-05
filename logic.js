@@ -111,6 +111,7 @@ let testReply = (questionIndex ,answerIndex) =>{
           $('#response').html(gameConfig.response.correct);
           $('#score').html(score += 7);
           questionChange;
+          $('#answers').val("")
 
 
 
@@ -120,7 +121,7 @@ let testReply = (questionIndex ,answerIndex) =>{
           $('#score').html(score -= 6);
           $('#life').html(life -= 1);
           $('#ScoreImage').attr("src", "https://media.giphy.com/media/NK1x68ZH6KojS/giphy.gif")
-
+          $('#answers').val("")
       }
 
 
