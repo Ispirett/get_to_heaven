@@ -9,16 +9,24 @@
 
 </head>
 <body style="background-image: url('assets/images/angels_demons.jpg') ">
+
+<audio preload="none" controls  id="audio" >
+<source  src='' type="audio/ogg">
+
+</audio>
+
 <header class="container text-center "> <h1>Welcome to get to Heaven</h1> <a href="updatelog.html"><h2 style="color: wheat">UpdateLog</h2></a></header>
 <div id="body" class="container text-center">
     <h4 id="gameOver" style="color: #CD5C5C"> Answer questions to get to heaven</h4>
     <br/>
-    <!-- game variables --><img src="assets/images/img2.png" >
+    <!-- game variables -->
+    <img class="image-spin" src="assets/images/img2.png" >
+
     <img id="ScoreImage" >
 
     <h3 class="text-warning"> Score : <aside id="score"  class="text-danger "  ></aside> </h3>
 
-     <img src="assets/images/img3.png" >
+     <img class="image-spin" src="assets/images/img3.png" >
     <h3 class="text-warning"> Life : <aside  id="life"  class="text-danger "  ></aside> </h3>
 
     <br/>
@@ -30,6 +38,7 @@
     <h6 id="response" style="color: #19ff30"></h6>
     <br/>
     <button  onclick="nextQuestion();"  class="btn btn-outline-secondary "  style="background-color: #a9df81" type="button" >Next</button>
+    <button id="hint"   class="btn btn-outline-secondary "  style="background-color: #a9df81" type="button" >Hint</button>
     <div  class="container text-center" style="display: inline-block">
       <br/>
       <br/>

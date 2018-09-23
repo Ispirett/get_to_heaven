@@ -1,19 +1,51 @@
+@font-face {
+    font-family: TimeSpliters;
+    src: local("assets/font/TimeSpliters.otf");
+}
 
+
+body{
+    font-family:fantasy;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px #4f4c4e;
+}
 
 header{
 
     color: antiquewhite;
 
-
-
-
-
-
 }
 
+
+.change-log{
+    height: 500px;
+    overflow: auto;
+}
+
+
+
+audio{
+    display: none;
+}
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
 
+}
+
+#ScoreImage{
+    border: 3px solid deepskyblue;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.image-spin{
+    animation: game-image-spin infinite 20s linear;
+}
+
+
+@keyframes game-image-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
