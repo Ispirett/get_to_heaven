@@ -27,6 +27,30 @@ io.on("connection", (socket)  => {
         console.log(data)
     });
 
+    // handle messages
+    socket.on('messages', (messages) => {
+       io.sockets.emit('messages', messages)
+
+    });
+   // handle users
+    socket.on('user', (user) => {
+        socket.broadcast.emit('user', user)
+
+    });
+
+    // handle user score
+    socket.on('userScore', (score) => {
+       socket.broadcast.emit('userScore', score);
+
+
+    });
+
+    // handle user Life
+    socket.on('userLife', (life) => {
+        socket.broadcast.emit('userLife', life)
+
+    });
+
 
 
 });

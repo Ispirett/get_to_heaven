@@ -11,7 +11,7 @@ body{
     text-shadow: 1px 1px #4f4c4e;
 }
 
-header{
+#header{
 
     color: antiquewhite;
 
@@ -49,3 +49,9 @@ audio{
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+#message{
+    height: 100px;
+}
+#display-messages li:nth-child(odd) { background: #d4ee46; }
+#display-users li:nth-child(odd) { background: #d4ee46; }
