@@ -36,7 +36,26 @@ const gameConfig = {
 
   ],
 
-  response: {
+    hint : [
+        'B_t_le_e_',
+        '2_',
+        'L_cu_ts',
+        'P_t_r',
+        'S_m_on',
+        'M_lt_',
+        'Ta_ co_l_c_or',
+        'D_ma_cus',
+        'S_ul',
+        'L_k_',
+        'L_v_',
+        'B_nj_m_n',
+
+    ],
+
+
+
+
+    response: {
       correct: 'I step closer to Heaven',
       incorrect: 'You have forsaken your God',
 
@@ -202,22 +221,24 @@ let testReply = (questionIndex ,answerIndex) =>{
 $('#hint').click(hintButton);
 
 function hintButton () {
-    $('#score').html(score -= 2);
-    $('#life').html(life -= 1);
-    audioManager('assets/audio/knifeSlice2.ogg');
+    $('#score').html(score -= 6);
 
+
+    audioManager(gameConfig.gameAudio.ui.button[0],1);
     gameOver();
     // get questions
     let questions = $('#questions').html();
     let gameConfigQuestons = gameConfig.questions;
     let gameConfigAnswers = gameConfig.answers;
-    for (key in gameConfigAnswers && gameConfigQuestons ) {
+    let gameConfigHints = gameConfig.hint;
+    // loop through hints and questions
+    for (key in gameConfigHints && gameConfigQuestons ) {
 
         if (questions === gameConfigQuestons[key]) {
-            alert(gameConfigAnswers[key] )
+            alert(gameConfigHints[key])
         }
     }
-    audioManager(gameConfig.gameAudio.intro);
+
 }
 
 // Audio ************************
@@ -271,8 +292,18 @@ function pauseTaunt () {
 
 //*************************************
 
+//GAMESTART
+
+gameStart = () =>{
+
+    $('#life').html(life);
+    $('#score').html(score);
+
+    audioManager(gameConfig.gameAudio.intro, 1);
+    audioManager(gameConfig.gameAudio.music, 0.3,'#audio2','play')
 
 
+};
 
 
 
@@ -287,8 +318,12 @@ gameOver = () => {
          audioManager(audioSelector(gameConfig.gameAudio.lose));
          $('#gameOver').html('This is the end');
          $('#questions').html('This is the end you lost refresh browser to play again');
-
-
+         document.getElementById("overlay").style.display = "block";
+         $('#replayButton').text("Replay");
+         $('#replayButton').click( () =>{
+             document.getElementById("overlay").style.display ="none";
+             location.reload();
+         });
      }
 
  };
@@ -313,10 +348,7 @@ $(document).ready(function () {
 
 
 $('#questions').html(randomQuestion());
-$('#life').html(life);
-$('#score').html(score);
-audioManager(gameConfig.gameAudio.intro, 1);
-audioManager(gameConfig.gameAudio.music, 0.3,'#audio2','play')
+gameStart();
 });
 
 
