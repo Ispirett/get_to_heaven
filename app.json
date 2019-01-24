@@ -1,0 +1,7 @@
+{
+
+  "name": "Get to heaven",
+  "description": "a bible triva type game with a twist",
+  "respository": "https://github.com/Ispirett/get_to_heaven.git",
+  "keyswords": ["node", "socket.io"]
+}
