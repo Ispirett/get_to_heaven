@@ -62,7 +62,7 @@ io.on("connection", (socket)  => {
 
 
 
-let port = 3000;
+let port = 5000;
 httpServer.listen(port, () =>{
 console.log("listening on port " + port);
 });
