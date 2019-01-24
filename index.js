@@ -59,10 +59,10 @@ io.on("connection", (socket)  => {
 
 
 
+httpServer.listen(process.env.PORT || 5000);
 
 
-
-let port = 5000;
+/**let port = 5000;
 httpServer.listen(port, () =>{
 console.log("listening on port " + port);
-});
+}); */
