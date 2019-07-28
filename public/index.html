@@ -1,249 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/sidebar.css" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="jquery.js"></script>
     <script src="client.js"></script>
     <script src="logic.js"></script>
 
-
-    <title>Get to Heaven </title>
-
+    <title>Get to Heaven</title>
 </head>
-<body style="background-image: url('./assets/images/angels_demons.jpg') ">
 
-<audio preload="auto"  id="audio" >
-    <source  src='' type="audio/mp3">
+<body>
+    <audio preload="auto" id="audio">
+      <source src="" type="audio/mp3" />
+    </audio>
+    <!-- Music -->
+    <audio controls id="audio2" loop>
+      <source src="" type="audio/mp3" />
+    </audio>
 
+    <audio controls id="audio3">
+      <source src="" type="audio/mp3" />
+    </audio>
 
-</audio>
-<!-- Music -->
-<audio  controls id="audio2" loop>
-    <source src="" type="audio/mp3">
-</audio>
-
-<audio  controls id="audio3" >
-    <source src="" type="audio/mp3">
-</audio>
-
-<!-- GAME OVER OVERLAY -->
-<div id="overlay" >
-    <div id="text">YOU WERE DEFEATED
-
-    </div>
-    <div id="replay">
-    <button id="replayButton"></button>
-    </div>
-</div>
-
-
-<div class="wrapper">
-
-    <!-- SideBar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Multiplayer</h3>
+    <!-- GAME OVER OVERLAY -->
+    <div id="overlay">
+        <div id="text">YOU WERE DEFEATED</div>
+        <div id="replay">
+            <button id="replayButton"></button>
         </div>
-        <!-- links -->
-        <ul class="list-unstyled components">
-            <p>Players</p>
+    </div>
 
-            <li class="active">
-                <a href="#display-user-score" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Scores</a>
-                <ul class="collapse list-unstyled" id="display-user-score">
+    <div class="wrapper">
+        <!-- SideBar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Multiplayer</h3>
+            </div>
+            <!-- links -->
+            <ul class="list-unstyled components">
+                <p>Players</p>
 
-                </ul>
-            </li>
+                <li class="active">
+                    <a href="#display-user-score" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Scores</a
+            >
+            <ul class="collapse list-unstyled" id="display-user-score"></ul>
+          </li>
 
-            <li class="active">
-                <a href="#display-user-life" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Life</a>
-                <ul class="collapse list-unstyled" id="display-user-life">
+          <li class="active">
+            <a
+              href="#display-user-life"
+              data-toggle="collapse"
+              aria-expanded="false"
+              class="dropdown-toggle"
+              >Users Life</a
+            >
+            <ul class="collapse list-unstyled" id="display-user-life"></ul>
+          </li>
 
-                </ul>
-            </li>
-
-
-
-
-
-
-
-
-
-            <!--Display users and messages -->
-            <li class="active">
-                <a href="#display-users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Online</a>
-                <ul class="collapse list-unstyled" id="display-users">
-                  <!--  <li>
+          <!--Display users and messages -->
+          <li class="active">
+            <a
+              href="#display-users"
+              data-toggle="collapse"
+              aria-expanded="false"
+              class="dropdown-toggle"
+              >Users Online</a
+            >
+            <ul class="collapse list-unstyled" id="display-users">
+              <!--  <li>
                         <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li> -->
-                </ul>
+                </li>
+                <li>
+                    <a href="#">Home 2</a>
+                </li>
+                <li>
+                    <a href="#">Home 3</a>
+                </li> -->
+            </ul>
             </li>
 
             <li class="active">
-                <a href="#display-messages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Messages</a>
-                <ul class="collapse list-unstyled" id="display-messages">
+                <a href="#display-messages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users Messages</a
+            >
+            <ul class="collapse list-unstyled" id="display-messages"></ul>
+          </li>
 
-                </ul>
+          <!-- Enter USer Name -->
+
+          <li>
+            <a href="#">Enter UserName</a>
             </li>
-
-
-
-
-
-
-
-
-
-            <!-- Enter USer Name -->
-
             <li>
-                <a href="#">Enter UserName</a>
-
+                <a><input type="text" id="user" placeholder="Username" class="form-control" /></a>
             </li>
-            <li> <a><input type="text" id="user" placeholder="Username" class="form-control"></a> </li>
-
-
-
-
 
             <li>
                 <a href="#" id="messages-label">Enter Message</a>
-
             </li>
-            <li> <a><textarea  id="message" placeholder="Type messsage" class="form-control"></textarea> </a></li>
+            <li>
+                <a><textarea
+                id="message"
+                placeholder="Type messsage"
+                class="form-control"
+              ></textarea>
+            </a>
+            </li>
 
-            <li> <a><button id="user-send" class="btn btn-info">Send</button></a> </li>
+            <li>
+                <a><button id="user-send" class="btn btn-info">Send</button></a>
+            </li>
 
             <li><a id="user-answer">User typing...... </a></li>
 
-
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a
+            >
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>
+                <a href="#">Page 1</a>
+            </li>
+            <li>
+                <a href="#">Page 2</a>
+            </li>
+            <li>
+                <a href="#">Page 3</a>
+            </li>
+            </ul>
             </li>
 
             <li>
                 <a href="updatelog.html" style="color: wheat">UpdateLog</a>
             </li>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
 
+        <div id="content" class=" container text-center">
+            <!-- header -->
+            <div id="header">
+                <h1>Welcome to get to Heaven</h1>
+                <a href="updatelog.html">
+                    <h2 style="color: wheat">UpdateLog</h2>
+                </a>
 
-
-
-
-
-
-
-
-
-<div id="content" class=" container text-center">
-    <!-- header -->
-    <div id="header">
-        <h1>Welcome to get to Heaven</h1>
-        <a href="updatelog.html">
-            <h2 style="color: wheat">UpdateLog</h2></a>
-
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
             <i class="fas fa-align-left"></i>
             <span>Multiplayer</span>
-        </button>
-    </div>
-
-    <h4 id="gameOver" style="color: #CD5C5C"> Answer questions to get to heaven</h4>
-    <br/>
-    <!-- game variables -->
-    <img class="image-spin" src="./assets/images/img2.png" >
-
-    <img id="ScoreImage" >
-
-    <h3 class="text-warning"> Score : <p id="score"  class="text-danger "  ></p> </h3>
-
-     <img class="image-spin" src="./assets/images/img3.png" >
-    <h3 class="text-warning"> Life : <p  id="life"  class="text-danger "  ></p> </h3>
-
-    <br/>
-    <!-- questions -->
-    <h3 id="questions" style="color: #D68910"></h3>
-    <br/>
-    <br/>
-    <!-- response -->
-    <h6 id="response" style="color: #19ff30"></h6>
-    <br/>
-    <button  onclick="nextQuestion();"  class="btn btn-outline-secondary "  style="background-color: #a9df81" type="button" >Next</button>
-    <button id="hint" onclick="hintButton();"  class="btn btn-outline-secondary "  style="background-color: #a9df81" type="button" >Hint</button>
-    <div >
-      <br/>
-      <br/>
-      <br/>
-
-      <!-- user input -->
-        <div class="input-group mb-3">
-            <input id='answers' type="text" class="form-control" placeholder="Your answer" aria-label="Your answer" aria-describedby="answers">
-            <div class="input-group-append">
-                <button id="answer-button"  class="btn  btn-outline-secondary " style="background-color: #a9df81" type="button" >Answer</button>
-
+          </button>
             </div>
+
+            <h4 id="gameOver" style="color: #CD5C5C">
+                Answer questions to get to heaven
+            </h4>
+            <br />
+            <!-- game variables -->
+            <img class="image-spin" src="./assets/images/img2.png" />
+
+            <img id="ScoreImage" />
+
+            <h3 class="text-warning">
+                Score :
+                <p id="score" class="text-danger "></p>
+            </h3>
+
+            <img class="image-spin" src="./assets/images/img3.png" />
+            <h3 class="text-warning">
+                Life :
+                <p id="life" class="text-danger "></p>
+            </h3>
+
+            <br />
+            <!-- questions -->
+            <h3 id="questions" style="color: #D68910"></h3>
+            <br />
+            <br />
+            <!-- response -->
+            <h6 id="response" style="color: #19ff30"></h6>
+            <br />
+            <button onclick="nextQuestion();" class="btn btn-outline-secondary " style="background-color: #a9df81" type="button">
+          Next
+        </button>
+            <button id="hint" onclick="hintButton();" class="btn btn-outline-secondary " style="background-color: #a9df81" type="button">
+          Hint
+        </button>
+            <div>
+                <br />
+                <br />
+                <br />
+
+                <!-- user input -->
+                <div class="input-group mb-3">
+                    <input id="answers" type="text" class="form-control" placeholder="Your answer" aria-label="Your answer" aria-describedby="answers" />
+                    <div class="input-group-append">
+                        <button id="answer-button" class="btn  btn-outline-secondary " style="background-color: #a9df81" type="button">
+                Answer
+              </button>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="container">
+                <img class="center" src="assets/images/logowhite.png" alt="" height="100" width="200" />
+
+                <p style="text-align: center; color: wheat">
+                    CopyRight Ispire Enterprises 2018
+                </p>
+            </footer>
         </div>
-
-
     </div>
 
-    <footer class="container">
-
-        <img class="center" src="assets/images/logowhite.png" alt="" height="100" width="200" >
-
-        <p style="text-align: center; color: wheat">
-            CopyRight Ispire Enterprises 2018
-        </p>
-
-    </footer>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-<script>
-    $(document).ready(function () {
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
+    <script>
+        $(document).ready(function() {
+            $("#sidebarCollapse").on("click", function() {
+                $("#sidebar").toggleClass("active");
+            });
         });
+    </script>
 
-    });
-</script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -3,59 +3,64 @@
     src: local("assets/font/TimeSpliters.otf");
 }
 
-
-body{
-    font-family:fantasy;
+body {
+    font-family: fantasy;
     font-size: 18px;
     font-weight: bold;
     text-shadow: 1px 1px #4f4c4e;
+    background-image: linear-gradient(rgb(0, 0, 0), rgba(71, 71, 71, 0.432)), url("../images/angels_demons.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-#header{
-
+#header {
     color: antiquewhite;
-
 }
 
-
-.change-log{
+.change-log {
     height: 500px;
     overflow: auto;
 }
 
-
-
-audio{
+audio {
     display: none;
 }
+
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-#ScoreImage{
+#ScoreImage {
     border: 3px solid deepskyblue;
     border-radius: 20px 20px 20px 20px;
 }
 
-.image-spin{
+.image-spin {
     animation: game-image-spin infinite 20s linear;
 }
 
-
 @keyframes game-image-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-#message{
+#message {
     height: 100px;
 }
-#display-messages li:nth-child(odd) { background: #d4ee46; }
-#display-users li:nth-child(odd) { background: #d4ee46; }
 
+#display-messages li:nth-child(odd) {
+    background: #d4ee46;
+}
+
+#display-users li:nth-child(odd) {
+    background: #d4ee46;
+}
 
 #overlay {
     position: fixed;
@@ -66,44 +71,39 @@ audio{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
-
     align-content: center;
 }
 
-#text{
+#text {
     position: absolute;
     top: 50%;
     left: 50%;
     font-size: 50px;
-    color:  antiquewhite;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    color: antiquewhite;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-#replayButton{
-
-    color:  antiquewhite;
+#replayButton {
+    color: antiquewhite;
     background-color: #832524;
     width: 30%;
     height: 30%;
     cursor: pointer;
-
 }
 
-#replayButton:hover{
+#replayButton:hover {
     background-color: deepskyblue;
 }
 
-#replay{
+#replay {
     position: absolute;
     width: 30%;
     height: 30%;
     top: 80%;
     left: 50%;
-
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }

@@ -1,9 +1,12 @@
 {
-  "name": "get_to_heaven",
-  "version": "0.0.1",
-  "description": "A Bible Trivia game Twist",
-  "dependencies": {
-    "express": "^4.16.3",
-    "socket.io": "^2.1.1"
-  }
+    "name": "get_to_heaven",
+    "version": "0.0.1",
+    "description": "A Bible Trivia game Twist",
+    "dependencies": {
+        "express": "^4.16.3",
+        "socket.io": "^2.1.1"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
 }
